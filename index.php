@@ -9,45 +9,52 @@
 
     <!-- Artikel Section -->
     <section id="artikel" class="py-5">
-        <div class="container">
-            <h2 class="mb-4">Artikel Kesehatan</h2>
-            <div class="row">
-                <!-- Artikel 1 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Artikel 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Manfaat Daun Kelor</h5>
-                            <p class="card-text">Daun kelor memiliki berbagai manfaat kesehatan, termasuk memperbaiki fungsi hati dan mengontrol gula darah.</p>
-                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-                        </div>
+    <div class="container">
+        <h2 class="mb-4">Artikel Kesehatan</h2>
+        <div class="row">
+            <!-- Artikel 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-wrapper" style="height: 200px; overflow: hidden;">
+                        <img src="https://diskes.badungkab.go.id/storage/diskes/image/WhatsApp%20Image%202023-01-30%20at%2013.55.59.jpeg" class="card-img-top img-fluid" style="object-fit: cover; width: 100%; height: 100%;" alt="Artikel 1">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Manfaat Daun Kelor</h5>
+                        <p class="card-text">Daun kelor (Moringa Oleifera) sejak lama digunakan sebagai obat tradisional yang baik untuk mencegah kanker dan menjaga tekanan darah.</p>
+                        <a href="https://diskes.badungkab.go.id/artikel/47615-manfaat-daun-kelor-untuk-kesehatan" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
                 </div>
-                <!-- Artikel 2 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Artikel 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Khasiat Temulawak</h5>
-                            <p class="card-text">Temulawak efektif untuk mengatasi masalah pencernaan dan meningkatkan daya tahan tubuh.</p>
-                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-                        </div>
+            </div>
+            <!-- Artikel 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-wrapper" style="height: 200px; overflow: hidden;">
+                        <img src="https://fahum.umsu.ac.id/blog/wp-content/uploads/2024/06/manfaat-temulawak-untuk-kesehatan-tubuh-750x375.jpg" class="card-img-top img-fluid" style="object-fit: cover; width: 100%; height: 100%;" alt="Artikel 2">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Khasiat Temulawak</h5>
+                        <p class="card-text">Temulawak efektif untuk mengatasi masalah pencernaan dan meningkatkan daya tahan tubuh.</p>
+                        <a href="https://fahum.umsu.ac.id/blog/manfaat-temulawak-untuk-kesehatan-tubuh/" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
                 </div>
-                <!-- Artikel 3 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Artikel 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Rahasia Jahe</h5>
-                            <p class="card-text">Jahe dikenal sebagai rempah yang membantu meredakan mual dan menghangatkan tubuh.</p>
-                            <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
-                        </div>
+            </div>
+            <!-- Artikel 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-img-wrapper" style="height: 200px; overflow: hidden;">
+                        <img src="https://fahum.umsu.ac.id/blog/wp-content/uploads/2024/10/10-manfaat-jahe-bagi-kesehatan-tubuh-750x375.jpg" class="card-img-top img-fluid" style="object-fit: cover; width: 100%; height: 100%;" alt="Artikel 3">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Rahasia Jahe</h5>
+                        <p class="card-text">Jahe dikenal sebagai rempah yang membantu meredakan mual dan menghangatkan tubuh.</p>
+                        <a href="https://fahum.umsu.ac.id/blog/10-manfaat-jahe-bagi-kesehatan-tubuh/" class="btn btn-primary">Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Pencarian Section -->
     <section id="pencarian" class="py-5 bg-light">
