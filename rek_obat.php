@@ -12,12 +12,12 @@ $results = [];
 if (isset($_POST['keluhan'])) {
     $keluhan = mysqli_real_escape_string($connect, $_POST['keluhan']);
     $results = mysqli_query($connect, "
-        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, olahan.nama_olahan, olahan.resep
+        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, khasiat.nama_keluhan, olahan.nama_olahan, olahan.resep
         FROM rempah
         JOIN jenis ON rempah.id_jenis = jenis.id_jenis
         JOIN khasiat ON rempah.id_rempah = khasiat.id_rempah
         JOIN olahan ON rempah.id_rempah = olahan.id_rempah
-        WHERE khasiat.nama_khasiat LIKE '%$keluhan%'
+        WHERE khasiat.nama_khasiat LIKE '%$keluhan%' OR khasiat.nama_keluhan LIKE '%$keluhan%'
     ");
 }
 ?>
@@ -41,8 +41,8 @@ if (isset($_POST['keluhan'])) {
                     placeholder="Contoh: Demam, batuk">
                 <datalist id="keluhan-list">
                     <?php foreach ($datalist_options as $option): ?>
-                    <option value="<?= htmlspecialchars($option) ?>">
-                        <?php endforeach; ?>
+                    <option value="<?= htmlspecialchars($option) ?>"></option>
+                    <?php endforeach; ?>
                 </datalist>
             </div>
             <button type="submit" class="btn btn-primary">Cari Obat</button>
@@ -57,7 +57,8 @@ if (isset($_POST['keluhan'])) {
                 <li class="list-group-item">
                     <strong><?= htmlspecialchars($row['nama_rempah']) ?></strong>
                     (<?= htmlspecialchars($row['nama_jenis']) ?>):
-                    <?= htmlspecialchars($row['nama_khasiat']) ?>.
+                    Khasiat: <?= htmlspecialchars($row['nama_khasiat']) ?>.
+                    Keluhan: <?= htmlspecialchars($row['nama_keluhan']) ?>.
                     <em>Olahan:</em> <?= htmlspecialchars($row['nama_olahan']) ?> -
                     Resep: <?= htmlspecialchars($row['resep']) ?>
                 </li>
