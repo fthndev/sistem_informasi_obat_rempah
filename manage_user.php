@@ -5,7 +5,7 @@ include './style/header.php'; // Menghubungkan header dan koneksi database
 if (isset($_GET['delete'])) {
     $id_user = $_GET['delete'];
     mysqli_query($connect, "DELETE FROM user WHERE id_user = $id_user");
-    header("Location: kelola_user.php");
+    header("Location: manage_user.php");
 }
 
 // Ambil data pengguna
