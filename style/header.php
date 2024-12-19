@@ -22,7 +22,7 @@ $tujuan = './index.php';
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= $tujuan ?>">Artikel</a>
+                        <a class="nav-link active" href="artikel.php">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pencarian">Pencarian</a>
