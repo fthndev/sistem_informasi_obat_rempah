@@ -1,10 +1,10 @@
 <?php 
 $connect = mysqli_connect("localhost", "root", "", "obat");
-session_start();
+
 $tujuan = '../index.php';
 
 // Contoh: Nama akun yang sedang login disimpan di session
-$nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+$nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Guest';
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel Kesehatan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Gaya Navbar */
@@ -77,7 +78,10 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
                 <!-- Nama Akun dan Logout -->
                 <div class="nav-profile">
-                    <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
+                    <div class="d-flex justify-content-center align-items-center gap-1">
+                        <i class="fa-solid fa-circle-user me-1 fs-4 text-light"></i>
+                        <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
+                    </div>
                     <a href="logout.php" class="logout-btn">
                         Logout
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="Logout Icon">
