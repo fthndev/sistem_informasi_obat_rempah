@@ -1,5 +1,5 @@
 <?php 
-    $connect = mysqli_connect("localhost", "root", "", "rempah");
+    $connect = mysqli_connect("localhost", "root", "", "obat");
     $erorus = "" ;
     $erorpw = "";
     if(isset($_POST['sign'])){
