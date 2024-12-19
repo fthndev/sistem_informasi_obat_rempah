@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['user'])){
+        echo "<script>
+            alert('anda harus login terlebih dahulu!');
+            window.location.href='login.php';
+        </script>";
+    }
+?>
 <?php require './style/header.php' ?>
 <style>
 /* Background abu-abu */
