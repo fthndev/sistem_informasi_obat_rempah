@@ -28,7 +28,7 @@
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Artikel</h5>
-                        <a href="data_user.php" class="btn btn-primary">Info lebih lanjut</a>
+                        <a href="kelolahArtikel.php" class="btn btn-primary">Info lebih lanjut</a>
                     </div>
                 </div>
             </div>
