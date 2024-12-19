@@ -1,4 +1,6 @@
-<?php 
+<?php
+include "./admin/style/header.php";
+include "./admin/style/sidebar.php";
 $conn=mysqli_connect("localhost","root","","obat");
 $query="SELECT * FROM artikel,rempah WHERE artikel.id_rempah=rempah.id_rempah";
 $result=mysqli_query($conn,$query);

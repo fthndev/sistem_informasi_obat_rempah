@@ -2,7 +2,6 @@
 $conn=mysqli_connect("localhost","root","","obat");
 if(isset($_GET["id"])){
     $id_artikel=$_GET["id"];
-    echo $id_artikel;
     $query="SELECT * FROM artikel,rempah WHERE id_artikel=$id_artikel AND artikel.id_rempah=rempah.id_rempah";
     $result=mysqli_query($conn,$query);
     $result=mysqli_fetch_assoc($result);
@@ -13,10 +12,10 @@ if(isset($_GET["id"])){
     $nama_rempah=$result["nama_rempah"];
     echo "<form method='POST'>
     Id Artikel:<input type='text' name='id_artikel' value='$id_artikel' readonly><br>
-    Judul:<input type='text' name='judul' value='$judul'><br>
-    Deskripsi:<input type='text' name='deskripsi' value='$deskripsi'><br>
-    Link:<input type='text' name='link' value='$link'><br>
-    Gambar:<input type='text' name='gambar' value='$gambar'><br>
+    Judul:<textarea name='judul'>$judul</textarea><br>
+    Deskripsi:<textarea name='deskripsi'>$deskripsi</textarea><br>
+    Link:<textarea name='link'>$link</textarea><br>
+    Gambar:<textarea name='gambar'>$gambar</textarea><br>
     Nama Rempah:<input list='nama_rempah' name='nama_rempah' value='$nama_rempah'><br>
     <datalist id='nama_rempah'>";
     $query="SELECT * FROM rempah";
@@ -46,10 +45,10 @@ if(isset($_GET["id"])){
     $last=$result1["id_artikel"]+1;
     echo'<form method="post">
     id_artikel:<input type="text" name="id_artikel" value="'.$last.'" readonly><br>
-    judul:<input type="text" name="judul"><br>
+    judul:<textarea name="judul"></textarea><br>
     deskripsi:<input type="text" name="deskripsi"><br>
-    link:<input type="text" name="link"><br>
-    gambar:<input type="text" name="gambar"><br>
+    link:<textarea name="link"></textarea><br>
+    gambar:<textarea name="gambar"></textarea><br>
     Nama Rempah:<input list="nama_rempah" name="nama_rempah"><br>
     <datalist id="nama_rempah">';
     $query="SELECT * FROM rempah";

@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 session_start();
 $username = "admin1"; // Ganti dengan nama pengguna Anda
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
