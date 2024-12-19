@@ -1,3 +1,4 @@
+
 <?php 
 $connect = mysqli_connect("localhost", "root", "", "obat");
 
@@ -53,6 +54,9 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             color: #ffffff;
             font-weight: bold;
         }
+        .nav-link:hover{
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +64,7 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="navbar-brand" href="../index.php">Kesehatan</a>
+            <a class="navbar-brand" href="index.php">Kesehatan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,10 +73,10 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="../artikel.php">Artikel</a>
+                        <a class="nav-link" href="artikel.php">Artikel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pencarian">Pencarian</a>
+                        <a class="nav-link" href="rek_obat.php">Pencarian</a>
                    </li>
                 </ul>
 
@@ -90,5 +94,6 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             </div>
         </div>
     </nav>
+
 
 

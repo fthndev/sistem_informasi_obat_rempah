@@ -1,16 +1,24 @@
 <?php 
+session_start();
 include './style/header.php'; // Menghubungkan header dan koneksi database
+
+// Ambil daftar semua khasiat dari tabel untuk mengisi datalist
+$datalist_query = mysqli_query($connect, "SELECT DISTINCT nama_khasiat FROM khasiat");
+$datalist_options = [];
+while ($row = mysqli_fetch_assoc($datalist_query)) {
+    $datalist_options[] = $row['nama_khasiat'];
+}
 
 $results = [];
 if (isset($_POST['keluhan'])) {
     $keluhan = mysqli_real_escape_string($connect, $_POST['keluhan']);
     $results = mysqli_query($connect, "
-        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, olahan.nama_olahan, olahan.resep
+        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, khasiat.nama_keluhan, olahan.nama_olahan, olahan.resep
         FROM rempah
         JOIN jenis ON rempah.id_jenis = jenis.id_jenis
         JOIN khasiat ON rempah.id_rempah = khasiat.id_rempah
         JOIN olahan ON rempah.id_rempah = olahan.id_rempah
-        WHERE khasiat.nama_khasiat LIKE '%$keluhan%'
+        WHERE khasiat.nama_khasiat LIKE '%$keluhan%' OR khasiat.nama_keluhan LIKE '%$keluhan%'
     ");
 }
 ?>
@@ -19,18 +27,24 @@ if (isset($_POST['keluhan'])) {
 <html lang="en">
 
 <head>
-    <title>Rekomendasi Obat</title>
+    <title>Rekomendasi Rempah</title>
 </head>
 
 <body class="bg-light">
     <div class="container mt-5">
-        <h1 class="mb-4">Rekomendasi Obat</h1>
+        <h1 class="mb-4">Rekomendasi Rempah</h1>
 
         <!-- Form Pencarian -->
         <form method="POST" class="mb-4">
             <div class="mb-3">
                 <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
-                <input type="text" id="keluhan" name="keluhan" class="form-control" placeholder="Contoh: Demam, batuk">
+                <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
+                    placeholder="Contoh: Demam, batuk">
+                <datalist id="keluhan-list">
+                    <?php foreach ($datalist_options as $option): ?>
+                    <option value="<?= htmlspecialchars($option) ?>"></option>
+                    <?php endforeach; ?>
+                </datalist>
             </div>
             <button type="submit" class="btn btn-primary">Cari Obat</button>
         </form>
@@ -44,7 +58,8 @@ if (isset($_POST['keluhan'])) {
                 <li class="list-group-item">
                     <strong><?= htmlspecialchars($row['nama_rempah']) ?></strong>
                     (<?= htmlspecialchars($row['nama_jenis']) ?>):
-                    <?= htmlspecialchars($row['nama_khasiat']) ?>.
+                    Khasiat: <?= htmlspecialchars($row['nama_khasiat']) ?>.
+                    Keluhan: <?= htmlspecialchars($row['nama_keluhan']) ?>.
                     <em>Olahan:</em> <?= htmlspecialchars($row['nama_olahan']) ?> -
                     Resep: <?= htmlspecialchars($row['resep']) ?>
                 </li>
