@@ -1,3 +1,4 @@
+
 <?php 
 $connect = mysqli_connect("localhost", "root", "", "obat");
 
@@ -72,7 +73,7 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../artikel.php">Artikel</a>
+                        <a class="nav-link" href="artikel.php">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="rek_obat.php">Pencarian</a>
@@ -93,5 +94,6 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             </div>
         </div>
     </nav>
+
 
 

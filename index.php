@@ -203,3 +203,4 @@ header p.lead {
         </div>
     </section>
     <?php require './style/foot.php' ?>
+

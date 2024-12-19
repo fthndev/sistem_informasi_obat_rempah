@@ -1,5 +1,5 @@
 <?php 
-    $connect = mysqli_connect("localhost", "root", "", "rempah");
+    $connect = mysqli_connect("localhost", "root", "", "obat");
     session_start();
     $erorus = "";
     $erorpw = "";
@@ -27,7 +27,7 @@
                         $_SESSION['level'] = 'admin';
                         echo "<script>
                             alert('login sebagai admin berhasil!');
-                            window.location.href='index.php';
+                            window.location.href='./admin/dashboard.php';
                         </script>";
                     }else{
                         $_SESSION['level'] = 'user';
