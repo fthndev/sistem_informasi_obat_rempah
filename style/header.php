@@ -73,7 +73,7 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pencarian">Pencarian</a>
-          l         </li>
+                   </li>
                 </ul>
 
                 <!-- Nama Akun dan Logout -->
