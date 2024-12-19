@@ -1,10 +1,10 @@
 <?php 
 $connect = mysqli_connect("localhost", "root", "", "obat");
-session_start();
-$tujuan = './index.php';
+
+$tujuan = '../index.php';
 
 // Contoh: Nama akun yang sedang login disimpan di session
-$nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+$nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Guest';
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,7 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel Kesehatan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Gaya Navbar */
@@ -59,7 +60,7 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="navbar-brand" href="index.php">Kesehatan</a>
+            <a class="navbar-brand" href="../index.php">Kesehatan</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -68,7 +69,7 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./artikel.php">Artikel</a>
+                        <a class="nav-link active" href="../artikel.php">Artikel</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pencarian">Pencarian</a>
@@ -77,7 +78,10 @@ $nama_pengguna = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
                 <!-- Nama Akun dan Logout -->
                 <div class="nav-profile">
-                    <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
+                    <div class="d-flex justify-content-center align-items-center gap-1">
+                        <i class="fa-solid fa-circle-user me-1 fs-4 text-light"></i>
+                        <span class="user-name"><?= htmlspecialchars($nama_pengguna) ?></span>
+                    </div>
                     <a href="logout.php" class="logout-btn">
                         Logout
                         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" alt="Logout Icon">
