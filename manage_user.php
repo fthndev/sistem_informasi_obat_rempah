@@ -1,59 +1,47 @@
-<?php
-// Koneksi ke database
-$conn = new mysqli("localhost", "root", "", "obat_tradisional");
-
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
+<?php 
+include './style/header.php'; // Menghubungkan header dan koneksi database
 
 // Hapus user jika ada permintaan
 if (isset($_GET['delete'])) {
     $id_user = $_GET['delete'];
-    $conn->query("DELETE FROM user WHERE id_user = $id_user");
+    mysqli_query($connect, "DELETE FROM user WHERE id_user = $id_user");
     header("Location: kelola_user.php");
 }
 
 // Ambil data pengguna
-$result = $conn->query("SELECT * FROM user");
-
+$result = mysqli_query($connect, "SELECT * FROM user");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola User</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
 
-<body class="bg-gray-100 p-6">
-    <div class="container mx-auto">
-        <h1 class="text-2xl font-bold mb-4">Kelola User</h1>
-
-        <!-- Tabel Data User -->
-        <table class="min-w-full bg-white border">
-            <thead>
-                <tr class="bg-gray-200 text-left">
-                    <th class="px-4 py-2">ID</th>
-                    <th class="px-4 py-2">Username</th>
-                    <th class="px-4 py-2">Password</th>
-                    <th class="px-4 py-2">Level</th>
-                    <th class="px-4 py-2">Aksi</th>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="mb-4">Kelola User</h1>
+        <table class="table table-bordered">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Level</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php while ($row = $result->fetch_assoc()): ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
-                    <td class="border px-4 py-2"><?= $row['id_user'] ?></td>
-                    <td class="border px-4 py-2"><?= $row['username'] ?></td>
-                    <td class="border px-4 py-2"><?= $row['password'] ?></td>
-                    <td class="border px-4 py-2"><?= $row['level'] ?></td>
-                    <td class="border px-4 py-2">
-                        <a href="edit_user.php?id=<?= $row['id_user'] ?>"
-                            class="bg-yellow-500 text-white px-2 py-1 rounded">Edit</a>
-                        <a href="?delete=<?= $row['id_user'] ?>" class="bg-red-500 text-white px-2 py-1 rounded"
+                    <td><?= $row['id_user'] ?></td>
+                    <td><?= htmlspecialchars($row['username']) ?></td>
+                    <td><?= htmlspecialchars($row['password']) ?></td>
+                    <td><?= $row['level'] ?></td>
+                    <td>
+                        <a href="edit_user.php?id=<?= $row['id_user'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="?delete=<?= $row['id_user'] ?>" class="btn btn-danger btn-sm"
                             onclick="return confirm('Hapus pengguna ini?')">Hapus</a>
                     </td>
                 </tr>
@@ -64,3 +52,4 @@ $result = $conn->query("SELECT * FROM user");
 </body>
 
 </html>
+<?php require './style/foot.php' ?>
