@@ -1,0 +1,39 @@
+/* Styling untuk header */
+header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* Pastikan header berada di atas */
+}
+
+/* Styling untuk sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998; /* Sidebar di bawah header */
+    padding-top: 60px; /* Jarak untuk header */
+}
+.sidebar .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+.sidebar .nav-link:hover {
+    background-color: #495057;
+    color: white;
+}
+
+/* Styling untuk konten utama */
+.content {
+    margin-left: 250px; /* Sesuai lebar sidebar */
+    padding-top: 80px; /* Jarak dari header */
+}
