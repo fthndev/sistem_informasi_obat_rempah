@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include './style/header.php'; // Menghubungkan header dan koneksi database
 
 $results = [];
@@ -19,12 +20,12 @@ if (isset($_POST['keluhan'])) {
 <html lang="en">
 
 <head>
-    <title>Rekomendasi Obat</title>
+    <title>Rekomendasi Rempah</title>
 </head>
 
 <body class="bg-light">
     <div class="container mt-5">
-        <h1 class="mb-4">Rekomendasi Obat</h1>
+        <h1 class="mb-4">Rekomendasi Rempah</h1>
 
         <!-- Form Pencarian -->
         <form method="POST" class="mb-4">
