@@ -1,6 +1,13 @@
 <?php 
 include './style/header.php'; // Menghubungkan header dan koneksi database
 
+// Ambil daftar semua khasiat dari tabel untuk mengisi datalist
+$datalist_query = mysqli_query($connect, "SELECT DISTINCT nama_khasiat FROM khasiat");
+$datalist_options = [];
+while ($row = mysqli_fetch_assoc($datalist_query)) {
+    $datalist_options[] = $row['nama_khasiat'];
+}
+
 $results = [];
 if (isset($_POST['keluhan'])) {
     $keluhan = mysqli_real_escape_string($connect, $_POST['keluhan']);
@@ -30,7 +37,13 @@ if (isset($_POST['keluhan'])) {
         <form method="POST" class="mb-4">
             <div class="mb-3">
                 <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
-                <input type="text" id="keluhan" name="keluhan" class="form-control" placeholder="Contoh: Demam, batuk">
+                <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
+                    placeholder="Contoh: Demam, batuk">
+                <datalist id="keluhan-list">
+                    <?php foreach ($datalist_options as $option): ?>
+                    <option value="<?= htmlspecialchars($option) ?>">
+                        <?php endforeach; ?>
+                </datalist>
             </div>
             <button type="submit" class="btn btn-primary">Cari Obat</button>
         </form>
