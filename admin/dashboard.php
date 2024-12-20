@@ -1,12 +1,12 @@
 <?php
     include '../admin/style/header.php';
     include '../admin/style/sidebar.php';
-    session_start();
+
 
     if(!isset($_SESSION['user'])){
         echo "<script>
             alert('anda harus login terlebih dahulu!');
-            window.location.href='login.php';
+            window.location.href='../login.php';
         </script>";
     }else{
         if($_SESSION['level'] != "admin"){
@@ -36,7 +36,7 @@
                 <div class="card text-center shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Rempah</h5>
-                        <a href="data_user.php" class="btn btn-primary">Info lebih lanjut</a>
+                        <a href="rempah.php" class="btn btn-primary">Info lebih lanjut</a>
                     </div>
                 </div>
             </div>

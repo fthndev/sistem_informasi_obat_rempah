@@ -1,5 +1,7 @@
 
-<?php include './style/header.php'; 
+<?php 
+    session_start();
+include './style/header.php'; 
 
 // Variabel default untuk pencarian
 $search_keyword = '';
@@ -16,10 +18,12 @@ if ($search_keyword !== '') {
 } else {
     // Jika tidak ada keyword, tampilkan semua artikel
     $artikel = "SELECT * FROM artikel LIMIT 25;
+
 ";
 }
 
 $result = mysqli_query($connect, $artikel);
+$hasil = mysqli_num_rows($result);
 ?>
 
 
