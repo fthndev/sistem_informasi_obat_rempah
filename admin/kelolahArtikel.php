@@ -95,7 +95,6 @@ if (isset($_GET["nama"])) {
 
 </style>
 <div class="main-content">
-    <?php echo $rows ?>
     <a href="editArtikel.php" class="btn btn-primary mt-3">Tambah Artikel</a>
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">

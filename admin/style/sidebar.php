@@ -8,7 +8,7 @@
             <a class="nav-link" href="kelolahArtikel.php"><i class="bi bi-people"></i> Artikel</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="../../rempah.php"><i class="bi bi-clipboard"></i> Rempah</a>
+            <a class="nav-link" href="rempah.php"><i class="bi bi-clipboard"></i> Rempah</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="manage_user.php"><i class="bi bi-house"></i> Olahan</a>
