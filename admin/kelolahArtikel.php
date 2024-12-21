@@ -16,17 +16,17 @@ if (isset($_GET["nama"])) {
 }
 ?>
 <style>
-    /* Kontainer utama untuk konten */
+ 
 .main-content {
-    margin-left: 260px; /* Menyesuaikan lebar sidebar */
-    margin-top: 70px;  /* Menyesuaikan tinggi header */
+    margin-left: 260px; 
+    margin-top: 70px;  
     padding: 20px;
-    overflow-x: auto; /* Menambahkan scroll horizontal untuk tabel besar */
-    background-color: #f8f9fa; /* Warna latar belakang ringan */
-    min-height: 100vh; /* Memastikan area konten penuh */
+    overflow-x: auto; 
+    background-color: #f8f9fa; 
+    min-height: 100vh; 
 }
 
-/* Styling tabel */
+
 .table img {
     display: block;
     margin: 0 auto;
@@ -38,12 +38,12 @@ if (isset($_GET["nama"])) {
     vertical-align: middle;
 }
 
-/* Styling tombol */
+
 .btn {
     margin: 2px;
 }
 
-/* Sidebar */
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -67,7 +67,7 @@ if (isset($_GET["nama"])) {
     background-color: #495057;
 }
 
-/* Header */
+
 .header {
     position: fixed;
     top: 0;
@@ -81,11 +81,10 @@ if (isset($_GET["nama"])) {
     z-index: 1000;
 }
 
-/* Responsif */
 @media (max-width: 768px) {
     .main-content {
         margin-left: 0;
-        margin-top: 120px; /* Untuk header yang lebih tinggi pada perangkat kecil */
+        margin-top: 120px; /
     }
     .sidebar {
         position: relative;
@@ -95,7 +94,6 @@ if (isset($_GET["nama"])) {
 
 </style>
 <div class="main-content">
-    <?php echo $rows ?>
     <a href="editArtikel.php" class="btn btn-primary mt-3">Tambah Artikel</a>
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">

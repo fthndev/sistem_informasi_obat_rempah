@@ -3,20 +3,20 @@ include "./style/header.php";
 include "./style/sidebar.php";
 $conn = mysqli_connect("localhost", "root", "", "obat");
 
-echo '<div class="main-content">'; // Kontainer utama untuk form
+echo '<div class="main-content">'; 
 ?>
 <head>
     <style>
-        /* Kontainer utama */
+
 .main-content {
-    margin-left: 260px; /* Menyesuaikan lebar sidebar */
-    margin-top: 70px;  /* Menyesuaikan tinggi header */
+    margin-left: 260px; 
+    margin-top: 70px;  
     padding: 20px;
-    background-color: #f8f9fa; /* Warna latar belakang */
+    background-color: #f8f9fa; 
     min-height: 100vh;
 }
 
-/* Styling form */
+
 .form-container {
     background: white;
     padding: 20px;

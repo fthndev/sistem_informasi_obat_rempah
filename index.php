@@ -28,17 +28,14 @@ if (isset($_POST['keluhan'])) {
 }
 ?>
 <style>
-/* Background abu-abu */
+
 #artikel {
     background-color: #e0e0e0;
-    /* Warna abu-abu */
     position: relative;
-    /* Agar tombol tetap berada di dalam section */
     padding-bottom: 80px;
-    /* Tambahkan padding agar tombol tidak terlalu menempel */
 }
 
-/* Wrapper gambar agar tidak melebar */
+
 .card-img-wrapper {
     height: 200px;
     overflow: hidden;
@@ -54,36 +51,28 @@ if (isset($_POST['keluhan'])) {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* Letakkan konten ke bawah */
     position: relative;
     padding-bottom: 50px;
-    /* Beri jarak untuk tombol */
+
 }
 
-/* Tombol di pojok kanan bawah */
+
 .lihat-lainnya {
     position: absolute;
-    /* Mengunci posisi tombol di dalam section */
     bottom: 20px;
-    /* Jarak dari bawah */
     right: 20px;
-    /* Jarak dari kanan */
+
 }
 
-/* Gaya Header dengan Background Gambar */
 header {
     background: url('https://asset.kompas.com/crops/c-gq-iWo6NQ5OIULTIUXlAWRoTs=/0x84:1440x1044/1200x800/data/photo/2023/04/27/6449d61265170.png') no-repeat center center;
     background-size: cover;
-    /* Menutupi seluruh area header */
     color: #ffffff;
-    /* Warna teks putih murni */
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-    /* Efek bayangan untuk teks */
     position: relative;
     height: 120%;
 }
 
-/* Overlay (Opsional, jika background terlalu terang) */
 header::before {
     content: '';
     position: absolute;
@@ -92,35 +81,28 @@ header::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    /* Overlay gelap transparan */
     z-index: 1;
 }
 
-/* Konten Header */
+
 header .container {
     position: relative;
     z-index: 2;
 }
 
-/* Judul Utama */
+
 header h1 {
     font-family: 'Poppins', Arial, sans-serif;
-    /* Font dari Google Fonts */
     font-weight: 700;
-    /* Tebal */
     font-size: 3rem;
-    /* Ukuran font besar */
     color: #f8f9fa;
-    /* Warna putih terang */
     margin-bottom: 20px;
 }
 
-/* Subjudul */
+
 header p.lead {
     font-size: 1.5rem;
-    /* Ukuran font subjudul */
     color: #f8f9fa;
-    /* Warna putih terang */
     margin-bottom: 0;
 }
 </style>
@@ -128,7 +110,6 @@ header p.lead {
 </head>
 
 <body>
-    <!-- Hero Section -->
     <header class="text-center py-5">
         <div class="container">
             <h1 class="display-4">Selamat Datang di Portal Kesehatan</h1>
@@ -136,12 +117,10 @@ header p.lead {
         </div>
     </header>
 
-    <!-- Artikel Section -->
     <section id="artikel" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Artikel Kesehatan</h2>
             <div class="row">
-                <!-- Artikel 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -159,7 +138,6 @@ header p.lead {
                         </div>
                     </div>
                 </div>
-                <!-- Artikel 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -176,7 +154,6 @@ header p.lead {
                         </div>
                     </div>
                 </div>
-                <!-- Artikel 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -206,7 +183,7 @@ header p.lead {
             <div class="mb-3">
                 <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
                 <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
-                    placeholder="Contoh: Demam, batuk">
+                    placeholder="Contoh: Bakteri, batuk">
                 <datalist id="keluhan-list">
                     <?php foreach ($datalist_options as $option): ?>
                     <option value="<?= htmlspecialchars($option) ?>"></option>
