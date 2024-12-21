@@ -13,8 +13,10 @@ if ($id_rempah) {
     $query = $connect->query("SELECT * FROM rempah WHERE id_rempah = $id_rempah");
     $row = $query->fetch_assoc();
 } else {
+
     die("Invalid ID Rempah");
 }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_rempah = $_POST['id_rempah'];
     $nama_rempah = $_POST['nama_rempah'];
@@ -25,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "UPDATE rempah SET nama_rempah = '$nama_rempah', nama_ilmiah = '$nama_ilmiah', id_jenis = '$id_jenis' WHERE id_rempah = $id_rempah";
 
     if ($connect->query($query) === TRUE) {
-        echo "<script>alert('Record updated successfully'); window.location.href = 'rempah.php';</script>";
+        echo "<script>alert('Update Berhasil!'); window.location.href = 'rempah.php';</script>";
     } else {
         echo "Error: " . $query . "<br>" . $connect->error;
     }

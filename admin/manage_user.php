@@ -37,7 +37,6 @@ $result = mysqli_query($connect, "SELECT id_user, username, level FROM user");
                         <td><?= htmlspecialchars($row['username']) ?></td>
                         <td><?= htmlspecialchars($row['level']) ?></td>
                         <td>
-                            <a href="edit_user.php?id=<?= $row['id_user'] ?>" class="btn btn-warning btn-sm">Edit</a>
                             <a href="?delete=<?= $row['id_user'] ?>" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Hapus pengguna ini?')">Hapus</a>
                         </td>

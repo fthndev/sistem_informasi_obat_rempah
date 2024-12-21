@@ -43,7 +43,6 @@ if (isset($_GET["nama"])) {
     margin: 2px;
 }
 
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -81,10 +80,11 @@ if (isset($_GET["nama"])) {
     z-index: 1000;
 }
 
+
 @media (max-width: 768px) {
     .main-content {
         margin-left: 0;
-        margin-top: 120px; /
+        margin-top: 120px; 
     }
     .sidebar {
         position: relative;

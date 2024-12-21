@@ -21,7 +21,7 @@ if (!empty($id_rempah)) {
         exit();
     }else{
         $stmt->execute();
-        header("Location: rempah.php");  
+        header("Location: rempah.php"); 
         exit();
     }
     $stmt->close();
