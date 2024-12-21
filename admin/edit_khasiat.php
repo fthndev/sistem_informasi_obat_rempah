@@ -1,5 +1,4 @@
 <?php
-
 include '../admin/style/header.php';
 include '../admin/style/sidebar.php';
 
@@ -10,7 +9,7 @@ if ($connect->connect_error) {
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login terlebih dahulu!');
+        lert('anda harus login!');
         window.location.href='../login.php';
     </script>";
 }else{
@@ -19,7 +18,6 @@ if(!isset($_SESSION['user'])){
         alert('anda harus login sebagai admin!');
         window.location.href='../login.php';
         </script>";
-    session_start();
     session_unset();
     session_destroy();
     }
