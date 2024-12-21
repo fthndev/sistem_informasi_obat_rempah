@@ -1,7 +1,12 @@
 <?php 
 require './style/header.php';
-$tujuan='./index.php';
-$_SESSION['tujuan']=$tujuan;
+session_start();
+if(!isset($_SESSION['user'])){
+    echo "<script>
+        alert('anda harus login terlebih dahulu!');
+        window.location.href='login.php';
+    </script>";
+}
 
 ?>
 <section id="pencarian" class="py-5 bg-light">
