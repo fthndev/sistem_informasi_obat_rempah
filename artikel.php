@@ -12,7 +12,7 @@ if (isset($_GET['search'])) {
 // Tentukan query berdasarkan kondisi keyword
 if ($search_keyword !== '') {
     // Jika ada keyword, cari artikel berdasarkan judul atau deskripsi
-    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'";
+    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%'";
 } else {
     // Jika tidak ada keyword, tampilkan semua artikel
     $artikel = "SELECT * FROM artikel LIMIT 25;

@@ -70,7 +70,8 @@ if (isset($_POST['keluhan'])) {
         <p class="text-muted">Tidak ada obat yang ditemukan untuk keluhan tersebut.</p>
         <?php endif; ?>
     </div>
+    <div class="footer">
+        <?php require './style/foot.php' ?>
+    </div>
 </body>
-
 </html>
-<?php require './style/foot.php' ?>

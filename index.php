@@ -7,7 +7,26 @@
         </script>";
     }
 ?>
-<?php require './style/header.php' ?>
+<?php require './style/header.php'; 
+$datalist_query = mysqli_query($connect, "SELECT DISTINCT nama_khasiat FROM khasiat");
+$datalist_options = [];
+while ($row = mysqli_fetch_assoc($datalist_query)) {
+    $datalist_options[] = $row['nama_khasiat'];
+}
+
+$results = [];
+if (isset($_POST['keluhan'])) {
+    $keluhan = mysqli_real_escape_string($connect, $_POST['keluhan']);
+    $results = mysqli_query($connect, "
+        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, khasiat.nama_keluhan, olahan.nama_olahan, olahan.resep
+        FROM rempah
+        JOIN jenis ON rempah.id_jenis = jenis.id_jenis
+        JOIN khasiat ON rempah.id_rempah = khasiat.id_rempah
+        JOIN olahan ON rempah.id_rempah = olahan.id_rempah
+        WHERE khasiat.nama_khasiat LIKE '%$keluhan%' OR khasiat.nama_keluhan LIKE '%$keluhan%'
+    ");
+}
+?>
 <style>
 /* Background abu-abu */
 #artikel {
@@ -180,26 +199,22 @@ header p.lead {
             <a href="artikel.php" class="btn btn-primary">Lihat Selengkapnya</a>
         </div>
     </section>
-
-    <!-- Tombol "Lihat Selengkapnya" di pojok kanan bawah -->
-
-
-    <!-- Pencarian Section -->
     <section id="pencarian" class="py-5 bg-light">
         <div class="container">
             <h2 class="mb-4">Pencarian Obat dan Rempah</h2>
-            <form action="hasil.php" method="POST">
-                <div class="mb-3">
-                    <label for="penyakit" class="form-label">Pilih Penyakit:</label>
-                    <select id="penyakit" name="penyakit" class="form-select">
-                        <option value="flu">Flu</option>
-                        <option value="pencernaan">Masalah Pencernaan</option>
-                        <option value="diabetes">Diabetes</option>
-                    </select>
-                </div>
-                <a href="rek_obat.php?penyakit=<?= isset($_POST['penyakit']) ? $_POST['penyakit'] : '' ?> "><button
-                        class=" btn btn-primary">Cari</button></a>
-            </form>
+            <form method="POST" action="rek_obat.php"class="mb-4">
+            <div class="mb-3">
+                <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
+                <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
+                    placeholder="Contoh: Demam, batuk">
+                <datalist id="keluhan-list">
+                    <?php foreach ($datalist_options as $option): ?>
+                    <option value="<?= htmlspecialchars($option) ?>"></option>
+                    <?php endforeach; ?>
+                </datalist>
+            </div>
+            <button type="submit" class="btn btn-primary">Cari Obat</button>
+        </form>
         </div>
     </section>
     <?php require './style/foot.php' ?>
