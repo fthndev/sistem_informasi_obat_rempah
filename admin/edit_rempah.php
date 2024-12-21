@@ -7,21 +7,24 @@ if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 }
 
+// Get the id_rempah from the URL query string
 $id_rempah = isset($_GET['id']) ? $_GET['id'] : '';
 
 if ($id_rempah) {
     $query = $connect->query("SELECT * FROM rempah WHERE id_rempah = $id_rempah");
     $row = $query->fetch_assoc();
 } else {
+    // If no id is provided, redirect or show an error
     die("Invalid ID Rempah");
 }
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_rempah = $_POST['id_rempah'];
     $nama_rempah = $_POST['nama_rempah'];
     $nama_ilmiah = $_POST['nama_ilmiah'];
     $id_jenis = $_POST['id_jenis'];
 
-
+    // Update query
     $query = "UPDATE rempah SET nama_rempah = '$nama_rempah', nama_ilmiah = '$nama_ilmiah', id_jenis = '$id_jenis' WHERE id_rempah = $id_rempah";
 
     if ($connect->query($query) === TRUE) {

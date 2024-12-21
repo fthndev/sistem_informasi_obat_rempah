@@ -34,12 +34,12 @@ if (isset($_POST['keluhan'])) {
     <div class="container mt-5">
         <h1 class="mb-4">Rekomendasi Rempah</h1>
 
-
+        <!-- Form Pencarian -->
         <form method="POST" class="mb-4">
             <div class="mb-3">
                 <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
                 <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
-                    placeholder="Contoh: Bakteri, batuk">
+                    placeholder="Contoh: Demam, batuk">
                 <datalist id="keluhan-list">
                     <?php foreach ($datalist_options as $option): ?>
                     <option value="<?= htmlspecialchars($option) ?>"></option>
@@ -49,6 +49,7 @@ if (isset($_POST['keluhan'])) {
             <button type="submit" class="btn btn-primary">Cari Obat</button>
         </form>
 
+        <!-- Hasil Rekomendasi -->
         <?php if (!empty($results) && mysqli_num_rows($results) > 0): ?>
         <div class="card p-3">
             <h2 class="card-title">Hasil Rekomendasi</h2>
@@ -69,8 +70,7 @@ if (isset($_POST['keluhan'])) {
         <p class="text-muted">Tidak ada obat yang ditemukan untuk keluhan tersebut.</p>
         <?php endif; ?>
     </div>
-    <div class="footer">
-        <?php require './style/foot.php' ?>
-    </div>
 </body>
+
 </html>
+<?php require './style/foot.php' ?>

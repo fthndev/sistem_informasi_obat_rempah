@@ -24,6 +24,7 @@
     <div class="container" style="width: 60%">
         <h1 class="text-center">Manage Rempah Database</h1>
 
+        <!-- Table to display data -->
         <div class="table-responsive">
             <table class="table table-bordered mt-3" id="rempahTable">
                 <thead>

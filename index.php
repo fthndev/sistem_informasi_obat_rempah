@@ -7,35 +7,19 @@
         </script>";
     }
 ?>
-<?php require './style/header.php'; 
-$datalist_query = mysqli_query($connect, "SELECT DISTINCT nama_khasiat FROM khasiat");
-$datalist_options = [];
-while ($row = mysqli_fetch_assoc($datalist_query)) {
-    $datalist_options[] = $row['nama_khasiat'];
-}
-
-$results = [];
-if (isset($_POST['keluhan'])) {
-    $keluhan = mysqli_real_escape_string($connect, $_POST['keluhan']);
-    $results = mysqli_query($connect, "
-        SELECT rempah.nama_rempah, jenis.nama_jenis, khasiat.nama_khasiat, khasiat.nama_keluhan, olahan.nama_olahan, olahan.resep
-        FROM rempah
-        JOIN jenis ON rempah.id_jenis = jenis.id_jenis
-        JOIN khasiat ON rempah.id_rempah = khasiat.id_rempah
-        JOIN olahan ON rempah.id_rempah = olahan.id_rempah
-        WHERE khasiat.nama_khasiat LIKE '%$keluhan%' OR khasiat.nama_keluhan LIKE '%$keluhan%'
-    ");
-}
-?>
+<?php require './style/header.php' ?>
 <style>
-
+/* Background abu-abu */
 #artikel {
     background-color: #e0e0e0;
+    /* Warna abu-abu */
     position: relative;
+    /* Agar tombol tetap berada di dalam section */
     padding-bottom: 80px;
+    /* Tambahkan padding agar tombol tidak terlalu menempel */
 }
 
-
+/* Wrapper gambar agar tidak melebar */
 .card-img-wrapper {
     height: 200px;
     overflow: hidden;
@@ -51,28 +35,36 @@ if (isset($_POST['keluhan'])) {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    /* Letakkan konten ke bawah */
     position: relative;
     padding-bottom: 50px;
-
+    /* Beri jarak untuk tombol */
 }
 
-
+/* Tombol di pojok kanan bawah */
 .lihat-lainnya {
     position: absolute;
+    /* Mengunci posisi tombol di dalam section */
     bottom: 20px;
+    /* Jarak dari bawah */
     right: 20px;
-
+    /* Jarak dari kanan */
 }
 
+/* Gaya Header dengan Background Gambar */
 header {
     background: url('https://asset.kompas.com/crops/c-gq-iWo6NQ5OIULTIUXlAWRoTs=/0x84:1440x1044/1200x800/data/photo/2023/04/27/6449d61265170.png') no-repeat center center;
     background-size: cover;
+    /* Menutupi seluruh area header */
     color: #ffffff;
+    /* Warna teks putih murni */
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+    /* Efek bayangan untuk teks */
     position: relative;
     height: 120%;
 }
 
+/* Overlay (Opsional, jika background terlalu terang) */
 header::before {
     content: '';
     position: absolute;
@@ -81,28 +73,35 @@ header::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
+    /* Overlay gelap transparan */
     z-index: 1;
 }
 
-
+/* Konten Header */
 header .container {
     position: relative;
     z-index: 2;
 }
 
-
+/* Judul Utama */
 header h1 {
     font-family: 'Poppins', Arial, sans-serif;
+    /* Font dari Google Fonts */
     font-weight: 700;
+    /* Tebal */
     font-size: 3rem;
+    /* Ukuran font besar */
     color: #f8f9fa;
+    /* Warna putih terang */
     margin-bottom: 20px;
 }
 
-
+/* Subjudul */
 header p.lead {
     font-size: 1.5rem;
+    /* Ukuran font subjudul */
     color: #f8f9fa;
+    /* Warna putih terang */
     margin-bottom: 0;
 }
 </style>
@@ -110,6 +109,7 @@ header p.lead {
 </head>
 
 <body>
+    <!-- Hero Section -->
     <header class="text-center py-5">
         <div class="container">
             <h1 class="display-4">Selamat Datang di Portal Kesehatan</h1>
@@ -117,10 +117,12 @@ header p.lead {
         </div>
     </header>
 
+    <!-- Artikel Section -->
     <section id="artikel" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Artikel Kesehatan</h2>
             <div class="row">
+                <!-- Artikel 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -138,6 +140,7 @@ header p.lead {
                         </div>
                     </div>
                 </div>
+                <!-- Artikel 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -154,6 +157,7 @@ header p.lead {
                         </div>
                     </div>
                 </div>
+                <!-- Artikel 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-wrapper">
@@ -176,22 +180,26 @@ header p.lead {
             <a href="artikel.php" class="btn btn-primary">Lihat Selengkapnya</a>
         </div>
     </section>
+
+    <!-- Tombol "Lihat Selengkapnya" di pojok kanan bawah -->
+
+
+    <!-- Pencarian Section -->
     <section id="pencarian" class="py-5 bg-light">
         <div class="container">
             <h2 class="mb-4">Pencarian Obat dan Rempah</h2>
-            <form method="POST" action="rek_obat.php"class="mb-4">
-            <div class="mb-3">
-                <label for="keluhan" class="form-label">Masukkan Keluhan atau Gejala:</label>
-                <input list="keluhan-list" id="keluhan" name="keluhan" class="form-control"
-                    placeholder="Contoh: Bakteri, batuk">
-                <datalist id="keluhan-list">
-                    <?php foreach ($datalist_options as $option): ?>
-                    <option value="<?= htmlspecialchars($option) ?>"></option>
-                    <?php endforeach; ?>
-                </datalist>
-            </div>
-            <button type="submit" class="btn btn-primary">Cari Obat</button>
-        </form>
+            <form action="hasil.php" method="POST">
+                <div class="mb-3">
+                    <label for="penyakit" class="form-label">Pilih Penyakit:</label>
+                    <select id="penyakit" name="penyakit" class="form-select">
+                        <option value="flu">Flu</option>
+                        <option value="pencernaan">Masalah Pencernaan</option>
+                        <option value="diabetes">Diabetes</option>
+                    </select>
+                </div>
+                <a href="rek_obat.php?penyakit=<?= isset($_POST['penyakit']) ? $_POST['penyakit'] : '' ?> "><button
+                        class=" btn btn-primary">Cari</button></a>
+            </form>
         </div>
     </section>
     <?php require './style/foot.php' ?>

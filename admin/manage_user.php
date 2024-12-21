@@ -2,22 +2,25 @@
 include '../admin/style/header.php';
 include '../admin/style/sidebar.php';
 
+// Hapus user jika ada permintaan
 if (isset($_GET['delete'])) {
-    $id_user = intval($_GET['delete']); 
+    $id_user = intval($_GET['delete']); // Validasi input
     mysqli_query($connect, "DELETE FROM user WHERE id_user = $id_user");
     header("Location: manage_user.php");
 }
 
+// Ambil data pengguna
 $result = mysqli_query($connect, "SELECT id_user, username, level FROM user");
 ?>
 
 <body class="bg-light d-flex">
-
+    <!-- Sidebar -->
     <div class="sidebar bg-dark text-white">
+        <!-- Sidebar akan dimuat di sini -->
         <?php include '../admin/style/sidebar.php'; ?>
     </div>
 
-
+    <!-- Main Content -->
     <div class="content w-100">
         <div class="container mt-5">
             <h1 class="mb-4">Kelola User</h1>
