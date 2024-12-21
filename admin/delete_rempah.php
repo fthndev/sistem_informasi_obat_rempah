@@ -8,7 +8,10 @@ if ($connect->connect_error) {
 $id_rempah = isset($_GET['id']) ? $_GET['id'] : '';
 
 if (!empty($id_rempah)) {
+<<<<<<< HEAD
   
+=======
+>>>>>>> f576d77d9e1484275f24b89aea38b2185de573b2
     $stmt = $connect->prepare("DELETE FROM rempah WHERE id_rempah = ?");
     $stmt->bind_param("i", $id_rempah);  
     $query_artikel = "SELECT * FROM artikel WHERE id_rempah =  '$id_rempah'";
@@ -25,10 +28,12 @@ if (!empty($id_rempah)) {
         header("Location: rempah.php"); 
         exit();
     }
-
     $stmt->close();
 } else {
+<<<<<<< HEAD
 
+=======
+>>>>>>> f576d77d9e1484275f24b89aea38b2185de573b2
     header("Location: rempah.php");
     exit();
 }

@@ -7,7 +7,6 @@ if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
 }
 
-
 $id_rempah = isset($_GET['id']) ? $_GET['id'] : '';
 
 if ($id_rempah) {
@@ -28,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "UPDATE rempah SET nama_rempah = '$nama_rempah', nama_ilmiah = '$nama_ilmiah', id_jenis = '$id_jenis' WHERE id_rempah = $id_rempah";
 
     if ($connect->query($query) === TRUE) {
-        echo "<script>alert('Record updated successfully'); window.location.href = 'rempah.php';</script>";
+        echo "<script>alert('Update Berhasil!'); window.location.href = 'rempah.php';</script>";
     } else {
         echo "Error: " . $query . "<br>" . $connect->error;
     }

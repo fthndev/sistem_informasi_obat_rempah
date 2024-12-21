@@ -2,13 +2,11 @@
 include '../admin/style/header.php';
 include '../admin/style/sidebar.php';
 
-
 if (isset($_GET['delete'])) {
     $id_user = intval($_GET['delete']); 
     mysqli_query($connect, "DELETE FROM user WHERE id_user = $id_user");
     header("Location: manage_user.php");
 }
-
 
 $result = mysqli_query($connect, "SELECT id_user, username, level FROM user");
 ?>
@@ -16,7 +14,6 @@ $result = mysqli_query($connect, "SELECT id_user, username, level FROM user");
 <body class="bg-light d-flex">
 
     <div class="sidebar bg-dark text-white">
-
         <?php include '../admin/style/sidebar.php'; ?>
     </div>
 

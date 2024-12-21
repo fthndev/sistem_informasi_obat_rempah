@@ -17,10 +17,9 @@ if (isset($_GET['search'])) {
     $search_keyword = mysqli_real_escape_string($connect, $_GET['search']);
 }
 
-
 if ($search_keyword !== '') {
-
-    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'";
+   
+    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%'";
 } else {
 
     $artikel = "SELECT * FROM artikel LIMIT 25;

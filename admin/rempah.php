@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $query = $connect->query("SELECT * FROM rempah, khasiat, olahan");
+                        $query = $connect->query("SELECT * FROM rempah JOIN olahan ON rempah.id_rempah = olahan.id_rempah JOIN khasiat ON khasiat.id_rempah = rempah.id_rempah");
                         while ($row = $query->fetch_assoc()) {
                             echo "<tr>
                                 <td>{$row['id_rempah']}</td>
