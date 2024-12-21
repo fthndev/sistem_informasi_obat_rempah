@@ -1,15 +1,14 @@
 <?php 
 session_start();
-
 if(!isset($_SESSION['user'])){
     echo "<script>
         alert('anda harus login terlebih dahulu!');
         window.location.href='login.php';
     </script>";
 }
-include './style/header.php'; // Menghubungkan header dan koneksi database
+include './style/header.php'; 
 
-// Ambil daftar semua khasiat dari tabel untuk mengisi datalist
+
 $datalist_query = mysqli_query($connect, "SELECT DISTINCT nama_khasiat FROM khasiat");
 $datalist_options = [];
 while ($row = mysqli_fetch_assoc($datalist_query)) {
