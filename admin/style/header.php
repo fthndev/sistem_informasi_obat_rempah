@@ -1,10 +1,9 @@
 <?php
     $connect = mysqli_connect("localhost", "root", "", "obat");
-
-    session_start();
     if (!isset($username)) {
         $username = "Admin"; 
     }
+    session_start();
 
     $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Guest';
 ?>

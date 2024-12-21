@@ -4,7 +4,7 @@ include '../admin/style/sidebar.php';
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login terlebih dahulu!');
+        alert('anda harus login!');
         window.location.href='../login.php';
     </script>";
 }else{
@@ -13,12 +13,10 @@ if(!isset($_SESSION['user'])){
         alert('anda harus login sebagai admin!');
         window.location.href='../login.php';
         </script>";
-    session_start();
     session_unset();
     session_destroy();
     }
 }
-
 if (isset($_GET['delete'])) {
     $id_user = intval($_GET['delete']); 
     mysqli_query($connect, "DELETE FROM user WHERE id_user = $id_user");

@@ -5,7 +5,7 @@ $conn = mysqli_connect("localhost", "root", "", "obat");
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login terlebih dahulu!');
+        alert('anda harus login!');
         window.location.href='../login.php';
     </script>";
 }else{
@@ -14,7 +14,6 @@ if(!isset($_SESSION['user'])){
         alert('anda harus login sebagai admin!');
         window.location.href='../login.php';
         </script>";
-    session_start();
     session_unset();
     session_destroy();
     }
@@ -112,7 +111,7 @@ if (isset($_GET["id"])) {
     <label>Gambar:</label>
     <textarea name='gambar'>$gambar</textarea><br>
     <label>Nama Rempah:</label>
-    <input list='nama_rempah' name='nama_rempah' value='$nama_rempah'>'<br>
+    <input list='nama_rempah' name='nama_rempah' value='$nama_rempah'><br>
     <datalist id='nama_rempah'>";
     
     $query = "SELECT * FROM rempah";

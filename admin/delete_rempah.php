@@ -1,5 +1,4 @@
 <?php
-
 $connect = mysqli_connect("localhost", "root", "", "obat");
 if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
@@ -7,7 +6,7 @@ if ($connect->connect_error) {
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login terlebih dahulu!');
+        alert('anda harus login!');
         window.location.href='../login.php';
     </script>";
 }else{
@@ -16,7 +15,6 @@ if(!isset($_SESSION['user'])){
         alert('anda harus login sebagai admin!');
         window.location.href='../login.php';
         </script>";
-    session_start();
     session_unset();
     session_destroy();
     }

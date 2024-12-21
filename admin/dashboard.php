@@ -1,12 +1,11 @@
 <?php
     include '../admin/style/header.php';
     include '../admin/style/sidebar.php';
-
-
+    
     if(!isset($_SESSION['user'])){
         echo "<script>
-            alert('anda harus login terlebih dahulu!');
-            window.location.href='../login.php';
+        alert('anda harus login!');
+        window.location.href='../login.php';
         </script>";
     }else{
         if($_SESSION['level'] != "admin"){
@@ -14,7 +13,6 @@
             alert('anda harus login sebagai admin!');
             window.location.href='../login.php';
             </script>";
-        session_start();
         session_unset();
         session_destroy();
         }

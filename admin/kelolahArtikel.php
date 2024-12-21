@@ -2,10 +2,9 @@
 include "./style/header.php";
 include "./style/sidebar.php";
 
-
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login terlebih dahulu!');
+        alert('anda harus login!');
         window.location.href='../login.php';
     </script>";
 }else{
@@ -14,7 +13,6 @@ if(!isset($_SESSION['user'])){
         alert('anda harus login sebagai admin!');
         window.location.href='../login.php';
         </script>";
-    session_start();
     session_unset();
     session_destroy();
     }

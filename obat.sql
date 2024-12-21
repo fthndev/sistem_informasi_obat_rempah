@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2024 at 06:57 PM
+-- Generation Time: Dec 21, 2024 at 12:19 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,21 +65,7 @@ INSERT INTO `artikel` (`id_artikel`, `judul`, `deskripsi`, `link`, `gambar`, `id
 (22, 'Andaliman: Rempah Ajaib dari Tanah Batak dengan Beragam Manfaat Kesehatan\n', 'Andaliman, sering disebut sebagai merica atau lada Batak, ternyata tidak hanya memberikan cita rasa unik pada masakan, tetapi juga memiliki sejumlah manfaat kesehatan yang luar biasa.', 'https://marwahkepri.com/2023/12/11/andaliman-rempah-ajaib-dari-tanah-batak-dengan-beragam-manfaat-kesehatan/', 'https://i0.wp.com/marwahkepri.com/wp-content/uploads/2023/12/anda.png?w=470&ssl=1', 16),
 (23, 'Jarang Ada yang Tahu, Ternyata Tanaman Rempah Kemukus Sangat Bermanfaat Bagi Kesehatan Tubuh Lho\n', ' Kemukus adalah salah satu rempah yang masuk dalam keluarga sirih-sirihan yang bisa digunakan untuk bumbu dapur.', 'https://www.jawapos.com/kesehatan/014860146/jarang-ada-yang-tahu-ternyata-tanaman-rempah-kemukus-sangat-bermanfaat-bagi-kesehatan-tubuh-lho', 'https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2024/07/13/Screenshot-2024-07-13-211906-3974767999.png', 17),
 (24, 'Dijuluki \'Emas Hijau\', Ini 10 Manfaat Vanili Bagi Kesehatan\n', 'Vanili, rempah yang kaya akan aroma manis yang menggoda, telah menjadi bagian tak terpisahkan dari masakan dan manufaktur produk-produk parfum dan kosmetik.\n', 'https://www.tempo.co/gaya-hidup/dijuluki-emas-hijau-ini-10-manfaat-vanili-bagi-kesehatan--163269', 'https://statik.tempo.co/data/2022/03/29/id_1098806/1098806_720.jpg', 18),
-(25, 'Manfaat Cengkeh Bagi Kesehatan\n', 'Manfaat cengkeh tidak hanya sebagai bahan campuran dalam pembuatan rokok. Rempah ini juga sering digunakan dalam pembuatan makanan dan minuman, bahkan kerap dimanfaatkan sebagai obat tradisional untuk mengatasi berbagai penyakit. \n\n', 'https://www.tanyapepsodent.com/tips-kesehatan-gigi/produk-perawatan-gigi/khasiat-cengkeh-yang-tidak-banyak-diketahui.html', 'https://assets.unileversolutions.com/v1/78301567.jpg?', 19),
-(27, 'a', 'a', 'a', 'a', 20),
-(28, 'a', 'a', 'a', 'a', 21),
-(29, 'a', 'a', 'a', 'a', 23),
-(30, 'a', 'a', 'a', 'a', 24),
-(31, 'a', 'a', 'a', 'a', 20),
-(32, 'a', 'a', 'a', 'a', 21),
-(33, 'a', 'a', 'a', 'a', 23),
-(34, 'a', 'a', 'a', 'a', 24),
-(35, 'a', 'a', 'a', 'a', 25),
-(36, 'a', 'a', 'a', 'a', 20),
-(37, 'a', 'a', 'a', 'a', 21),
-(38, 'a', 'a', 'a', 'a', 23),
-(39, 'a', 'a', 'a', 'a', 24),
-(40, 'a', 'a', 'a', 'a', 25);
+(25, 'Manfaat Cengkeh Bagi Kesehatan\n', 'Manfaat cengkeh tidak hanya sebagai bahan campuran dalam pembuatan rokok. Rempah ini juga sering digunakan dalam pembuatan makanan dan minuman, bahkan kerap dimanfaatkan sebagai obat tradisional untuk mengatasi berbagai penyakit. \n\n', 'https://www.tanyapepsodent.com/tips-kesehatan-gigi/produk-perawatan-gigi/khasiat-cengkeh-yang-tidak-banyak-diketahui.html', 'https://assets.unileversolutions.com/v1/78301567.jpg?', 19);
 
 -- --------------------------------------------------------
 
@@ -123,7 +109,7 @@ CREATE TABLE `khasiat` (
 --
 
 INSERT INTO `khasiat` (`id_khasiat`, `nama_khasiat`, `id_rempah`, `nama_keluhan`) VALUES
-(1, 'Anti-inflamasi, membantu pencernaan, meningkatkan imun\r\n', 1, 'inflamasi, pencernaan, imun'),
+(1, 'Anti-inflamasi, membantu pencernaan, meningkatkan imun', 1, 'inflamasi, pencernaan, imun'),
 (2, 'Menghangatkan tubuh, mengatasi mual, meningkatkan imun\r\n', 2, 'kedinginan, mual, imun'),
 (3, 'Mengatasi gangguan lambung, masuk angin, meningkatkan nafsu makan\r\n', 3, 'gangguan lambung, masuk angin, nafsu makan'),
 (4, 'Menurunkan gula darah, antioksidan\r\n', 4, 'gula darah, kurang antioksidan'),
@@ -210,7 +196,7 @@ CREATE TABLE `rempah` (
 --
 
 INSERT INTO `rempah` (`id_rempah`, `nama_rempah`, `nama_ilmiah`, `id_jenis`) VALUES
-(1, 'Kunyit\r\n', 'Curcuma longa\r\n', 2),
+(1, 'Kunyit', 'Curcuma longa', 2),
 (2, 'Jahe\r\n', 'Zingiber officinale\r\n', 2),
 (3, 'Lengkuas\r\n', 'Alpinia galanga\r\n', 2),
 (4, 'Kayu Manis\r\n', 'Cinnamomum verum\r\n', 5),
@@ -254,8 +240,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
-(1, 'dio', 'c20ad4d76fe97759aa27', 2),
-(3, 'fathan', '202cb962ac59075b964b07152d234b70', 1);
+(3, 'fathan', '202cb962ac59075b964b07152d234b70', 1),
+(5, 'abid', '202cb962ac59075b964b07152d234b70', 2);
 
 --
 -- Indexes for dumped tables
@@ -339,7 +325,7 @@ ALTER TABLE `rempah`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -367,7 +353,7 @@ ALTER TABLE `olahan`
 -- Constraints for table `rempah`
 --
 ALTER TABLE `rempah`
-  ADD CONSTRAINT `rempah_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis` (`id_jenis`);
+  ADD CONSTRAINT `rempah_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis` (`id_jenis`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
