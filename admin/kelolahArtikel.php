@@ -16,11 +16,7 @@ if (isset($_GET["nama"])) {
 }
 ?>
 <style>
-<<<<<<< HEAD
-
-=======
  
->>>>>>> f576d77d9e1484275f24b89aea38b2185de573b2
 .main-content {
     margin-left: 260px; 
     margin-top: 70px;  
@@ -47,10 +43,6 @@ if (isset($_GET["nama"])) {
     margin: 2px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f576d77d9e1484275f24b89aea38b2185de573b2
 .sidebar {
     position: fixed;
     top: 0;

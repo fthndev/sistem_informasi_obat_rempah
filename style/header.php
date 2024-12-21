@@ -60,13 +60,6 @@ $nama_pengguna = isset($_SESSION['user']) ? $_SESSION['user']['username'] : 'Gue
             color: white;
         }
 
-<<<<<<< HEAD
-        footer{
-            margin-bottom: auto;
-        }
-=======
-
->>>>>>> f576d77d9e1484275f24b89aea38b2185de573b2
     </style>
 </head>
 <body>
