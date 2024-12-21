@@ -3,20 +3,19 @@
     session_start();
 include './style/header.php'; 
 
-// Variabel default untuk pencarian
+
 $search_keyword = '';
 
-// Cek apakah user melakukan pencarian
+
 if (isset($_GET['search'])) {
     $search_keyword = mysqli_real_escape_string($connect, $_GET['search']);
 }
 
-// Tentukan query berdasarkan kondisi keyword
 if ($search_keyword !== '') {
-    // Jika ada keyword, cari artikel berdasarkan judul atau deskripsi
-    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%' OR deskripsi LIKE '%$search_keyword%'";
+   
+    $artikel = "SELECT * FROM artikel WHERE judul LIKE '%$search_keyword%'";
 } else {
-    // Jika tidak ada keyword, tampilkan semua artikel
+
     $artikel = "SELECT * FROM artikel LIMIT 25;
 
 ";
@@ -33,10 +32,10 @@ $hasil = mysqli_num_rows($result);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel Obat dan Rempah</title>
-    <link rel="stylesheet" href="style.css"> <!-- Pastikan ada file style.css -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <!-- Bagian Search -->
+
     <section id="search" class="search-container">
         <form action="artikel.php" method="get">
             <input 
@@ -49,7 +48,7 @@ $hasil = mysqli_num_rows($result);
         </form>
     </section>
 
-    <!-- Bagian Artikel -->
+
     <section id="artikel" class="artikel-container">
         <div class="con">
             <div class="artikel-grid">
