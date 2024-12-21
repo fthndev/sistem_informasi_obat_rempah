@@ -2,6 +2,23 @@
 include "./style/header.php";
 include "./style/sidebar.php";
 
+
+if(!isset($_SESSION['user'])){
+    echo "<script>
+        alert('anda harus login terlebih dahulu!');
+        window.location.href='../login.php';
+    </script>";
+}else{
+    if($_SESSION['level'] != "admin"){
+        echo "<script>
+        alert('anda harus login sebagai admin!');
+        window.location.href='../login.php';
+        </script>";
+    session_start();
+    session_unset();
+    session_destroy();
+    }
+}
 $query = mysqli_query($connect,"SELECT * FROM artikel");
 $rows = mysqli_num_rows($query);
 $query = "SELECT * FROM artikel, rempah WHERE artikel.id_rempah = rempah.id_rempah LIMIT $rows";
