@@ -9,8 +9,8 @@ if ($connect->connect_error) {
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        lert('anda harus login!');
-        window.location.href='../login.php';
+    alert('anda harus login!');
+    window.location.href='../login.php';
     </script>";
 }else{
     if($_SESSION['level'] != "admin"){
@@ -20,7 +20,7 @@ if(!isset($_SESSION['user'])){
         </script>";
     session_unset();
     session_destroy();
-    }
+}
 }
 
 $id_rempah = isset($_GET['ide']) ? $_GET['ide'] : '';

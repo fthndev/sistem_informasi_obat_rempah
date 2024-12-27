@@ -33,7 +33,7 @@
                         $_SESSION['level'] = 'user';
                         echo "<script>
                             alert('login sebagai user berhasil!');
-                            window.location.href='index.php';
+                            window.location.href='dashboard_user.php';
                         </script>";
                     }
                 }

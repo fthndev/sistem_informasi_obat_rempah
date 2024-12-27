@@ -15,8 +15,8 @@
             </script>";
         session_unset();
         session_destroy();
-        }
     }
+}
 ?>
 <div class="content">
     <div class="container mt-4">

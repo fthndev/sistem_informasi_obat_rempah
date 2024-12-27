@@ -4,8 +4,8 @@ include "./style/sidebar.php";
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login!');
-        window.location.href='../login.php';
+    alert('anda harus login!');
+    window.location.href='../login.php';
     </script>";
 }else{
     if($_SESSION['level'] != "admin"){
@@ -15,7 +15,7 @@ if(!isset($_SESSION['user'])){
         </script>";
     session_unset();
     session_destroy();
-    }
+}
 }
 $query = mysqli_query($connect,"SELECT * FROM artikel");
 $rows = mysqli_num_rows($query);

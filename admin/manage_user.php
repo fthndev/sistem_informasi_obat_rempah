@@ -4,8 +4,8 @@ include '../admin/style/sidebar.php';
 
 if(!isset($_SESSION['user'])){
     echo "<script>
-        alert('anda harus login!');
-        window.location.href='../login.php';
+    alert('anda harus login!');
+    window.location.href='../login.php';
     </script>";
 }else{
     if($_SESSION['level'] != "admin"){
@@ -15,7 +15,7 @@ if(!isset($_SESSION['user'])){
         </script>";
     session_unset();
     session_destroy();
-    }
+}
 }
 if (isset($_GET['delete'])) {
     $id_user = intval($_GET['delete']); 
